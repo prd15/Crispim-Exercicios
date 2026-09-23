@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+}
+
+/* # é seletor de id - o id é único na página */
+#titulo {
+    color: white;
+    text-align: center;
+}
+
+/* . é seletor de class - a class pode se repetir */
+.texto {
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+}
+
+/* Media query para telas com largura máxima de 600px */
+@media (max-width: 600px) {
+    body {
+        background-color: lightcoral;
+    }
+
+    #titulo {
+        font-size: 24px;
+    }
+
+    .texto {
+        font-size: 10px;
+    }
+}
