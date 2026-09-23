@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de usuários</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Verdana, sans-serif;
+            background-color: #eef1f5;
+            color: #2f3640;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1f3c5c, #2f6f8f);
+            color: #fff;
+            padding: 22px 30px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #cfe3ee;
+        }
+
+        header nav {
+            margin-top: 10px;
+        }
+
+        header nav a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 18px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        header nav a:hover {
+            border-bottom-color: #ffd166;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        .cartao {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .cartao h2 {
+            font-size: 19px;
+            color: #1f3c5c;
+            border-bottom: 2px solid #e6eaef;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+        }
+
+        .linha {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .campo {
+            flex: 1 1 220px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            font-family: inherit;
+            font-size: 15px;
+            padding: 9px 11px;
+            border: 1px solid #ccd3da;
+            border-radius: 4px;
+            background-color: #fbfcfd;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #2f6f8f;
+            background-color: #fff;
+        }
+
+        .acoes {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            background-color: #2f6f8f;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 26px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1f3c5c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            background-color: #1f3c5c;
+            color: #fff;
+            font-size: 13px;
+            text-align: left;
+            padding: 10px 12px;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e6eaef;
+            font-size: 15px;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f7f9fb;
+        }
+
+        .vazio {
+            color: #8b95a1;
+            font-style: italic;
+            padding: 12px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px;
+            }
+
+            .cartao {
+                padding: 18px;
+            }
+
+            thead th,
+            tbody td {
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Cadastro de usuários</h1>
+        <p>Projeto de orçamentos - Spring Boot com Thymeleaf</p>
+        <nav>
+            <a href="/usuarios/pesquisa">Usuários</a>
+            <a href="/orcamentos">Orçamentos</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="cartao">
+            <h2>Novo usuário</h2>
+
+            <form id="usuarioForm" th:action="@{/usuarios}" th:object="${usuarioModel}" method="post">
+                <div class="linha">
+                    <div class="campo">
+                        <label for="nomeUsuario">Nome do usuário</label>
+                        <input type="text" id="nomeUsuario" th:field="*{nomeUsuario}" required>
+                    </div>
+                    <div class="campo">
+                        <label for="rg">RG</label>
+                        <input type="text" id="rg" th:field="*{rg}">
+                    </div>
+                </div>
+
+                <div class="linha" style="margin-top: 18px;">
+                    <div class="campo">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" th:field="*{cpf}">
+                    </div>
+                    <div class="campo">
+                        <label for="nomeMae">Nome da mãe</label>
+                        <input type="text" id="nomeMae" th:field="*{nomeMae}">
+                    </div>
+                </div>
+
+                <div class="acoes">
+                    <button id="salvarUsuario" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="cartao">
+            <h2>Usuários cadastrados</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do usuário</th>
+                        <th>RG</th>
+                        <th>CPF</th>
+                        <th>Nome da mãe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.nomeUsuario}"></td>
+                        <td th:text="${usuario.rg}"></td>
+                        <td th:text="${usuario.cpf}"></td>
+                        <td th:text="${usuario.nomeMae}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="vazio" th:if="${usuarios == null or usuarios.isEmpty()}">
+                Nenhum usuário cadastrado até agora.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Máscaras de RG e CPF
+        document.addEventListener("DOMContentLoaded", function () {
+            Inputmask("99.999.999-9").mask(document.getElementById("rg"));
+            Inputmask("999.999.999-99").mask(document.getElementById("cpf"));
+        });
+
+        document.getElementById("usuarioForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "/usuarios/pesquisa";
+                } else {
+                    console.error("Erro ao salvar o usuário");
+                    alert("Erro ao Salvar");
+                }
+            }).catch(error => {
+                console.error("Erro ao salvar o usuário", error);
+                alert("Erro ao Salvar");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
