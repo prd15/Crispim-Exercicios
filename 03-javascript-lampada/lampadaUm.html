@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lâmpada</title>
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #eef1f5;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        h1 {
+            color: #1f3c5c;
+        }
+
+        .bloco {
+            background-color: #fff;
+            border: 1px solid #d5dbe2;
+            border-radius: 6px;
+            max-width: 420px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+
+        .bloco h2 {
+            font-size: 18px;
+            color: #2f6f8f;
+            margin-top: 0;
+        }
+
+        .bloco img {
+            width: 160px;
+        }
+
+        button {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
+            padding: 8px 22px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #ligar {
+            background-color: #2e9e5b;
+        }
+
+        #desligar {
+            background-color: #b34141;
+        }
+
+        .dica {
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Exercício da lâmpada</h1>
+
+    <div class="bloco">
+        <h2>Lâmpada 1 - com botões</h2>
+        <img id="lampadaBotao" src="img/lampada-apagada.svg" alt="Lâmpada">
+        <p>
+            <button id="ligar">Ligar</button>
+            <button id="desligar">Desligar</button>
+        </p>
+    </div>
+
+    <div class="bloco">
+        <h2>Lâmpada 2 - com o mouse</h2>
+        <img id="lampadaMouse" src="img/lampada-apagada.svg" alt="Lâmpada">
+        <p class="dica">Passe o mouse em cima da imagem para acender e tire para apagar.</p>
+    </div>
+
+    <script>
+        var acesa = "img/lampada-acesa.svg";
+        var apagada = "img/lampada-apagada.svg";
+
+        // Lâmpada 1 - os dois botões trocam a imagem
+        document.getElementById("ligar").addEventListener("click", function () {
+            document.getElementById("lampadaBotao").setAttribute("src", acesa);
+        });
+
+        document.getElementById("desligar").addEventListener("click", function () {
+            document.getElementById("lampadaBotao").setAttribute("src", apagada);
+        });
+
+        // Lâmpada 2 - acende no mouseover e apaga no mouseout
+        var lampadaMouse = document.getElementById("lampadaMouse");
+
+        lampadaMouse.addEventListener("mouseover", function () {
+            lampadaMouse.setAttribute("src", acesa);
+        });
+
+        lampadaMouse.addEventListener("mouseout", function () {
+            lampadaMouse.setAttribute("src", apagada);
+        });
+    </script>
+
+</body>
+
+</html>

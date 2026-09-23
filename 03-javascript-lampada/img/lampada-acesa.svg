@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240" width="160" height="240">
+  <defs>
+    <radialGradient id="brilho" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#fff6c2"/>
+      <stop offset="100%" stop-color="#ffcc33"/>
+    </radialGradient>
+  </defs>
+  <rect width="160" height="240" fill="#ffffff"/>
+  <g stroke="#f4b400" stroke-width="4" stroke-linecap="round">
+    <line x1="80" y1="6" x2="80" y2="18"/>
+    <line x1="22" y1="70" x2="10" y2="70"/>
+    <line x1="138" y1="70" x2="150" y2="70"/>
+    <line x1="34" y1="26" x2="25" y2="17"/>
+    <line x1="126" y1="26" x2="135" y2="17"/>
+  </g>
+  <path d="M80 30 a44 44 0 0 1 26 79 q-6 5 -6 14 h-40 q0 -9 -6 -14 a44 44 0 0 1 26 -79 z"
+        fill="url(#brilho)" stroke="#e0a800" stroke-width="3"/>
+  <path d="M68 100 q6 -26 12 -26 q6 0 12 26" fill="none" stroke="#c98a00" stroke-width="3"/>
+  <rect x="58" y="126" width="44" height="12" rx="3" fill="#b9a15f"/>
+  <rect x="58" y="142" width="44" height="12" rx="3" fill="#b9a15f"/>
+  <path d="M62 158 h36 l-8 22 h-20 z" fill="#9c8748"/>
+  <text x="80" y="212" text-anchor="middle" font-family="Verdana, sans-serif" font-size="16" fill="#8a6d00">Acesa</text>
+</svg>
