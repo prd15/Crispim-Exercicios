@@ -1,0 +1,14 @@
+# PDFs das aulas
+*.pdf
+
+# Build do Maven
+target/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Sistema
+Thumbs.db
+.DS_Store
